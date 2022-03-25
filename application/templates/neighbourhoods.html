@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container-fluid ml-5 " id="con">
+    
+    <div class="row">
+        {% for hood in all_hoods %}
+      <div class="col-sm-4">
+        <div class="card " style="width: 25rem; margin-left: 50px; margin-top: 10px;">
+            <img src="{{ hood.neighbourhood_logo.url }}" class="card-img-top" alt="{{ hood.name }}" height="180px">
+          <div class="card-body">
+            <h5 class="card-title">{{ gallery_item.image_name }}</h5>
+            <h5 class="card-title">{{ hood.name }} ({{hood.location}}) <span class="ml-4">{{hood.members.count}}
+                member{{hood.members.count|pluralize}}</span></h5>
+            <p class="card-text"><p></p></p>
+            <p class="card-text">{{hood.description}}</p>
+          {% if request.user.profile.neighbourhood == hood %}
+          <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Neighbourhood</a>
+          
+          <a href="{% url 'single-hood' user.profile.neighbourhood.id %}" class="btn btn-outline-success btn-sm" style="float: right">Explore {{user.profile.neighbourhood.name}} Estate
+        </a>
+          {% elif not request.user.profile.neighbourhood %}
+          <a href="" class="btn btn-info btn-sm">Join Neighbourood</a>
+          {% endif %}
+          </div>
+          <div class="card-body">
+            <a href="{% url 'new-hood' %}" class="btn btn-sm btn-info mb-2" style="text-align: center"> New Neighbourhood</a>
+            <a href="" class="card-link"><button type="button" class="btn btn-sm btn-primary">View more</button></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    body{
+      background-image: url('../static/images/pexels-photo-1637080.jpeg');
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #con{
+        margin-left: 50px;
+    }
+  </style>
+{% endblock %}

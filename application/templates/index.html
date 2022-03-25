@@ -1,0 +1,136 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="header1 mbr-fullscreen" id="header1-1">
+    <div class="mbr-overlay" style="opacity: 0.5; background-image: url({{hood.image.url}}); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    </div>
+
+    <div class="container align-center">
+        <div class="row justify-content-start">
+            <div class="mbr-white col-lg-8 col-md-10">
+                <h1 class="mbr-section-title mbr-bold align-left mbr-white pb-4 mbr-fonts-style display-7">
+                    <div style="color: black;">The Neighbour hood</div>
+                </h1>
+                <p class="mbr-text align-left pb-1 mbr-fonts-style display-1"><strong style="color: black;">{{hood.name}}</strong></p>
+                <div class="mbr-section-btn align-left"><a class="btn btn-md btn-warning display-4" href="{% url 'leave-hood' %}">Leave Neighborhood</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features6 cid-r7tVxFKKs2" id="features6-3">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h4 class="text-center">POSTS</h4>
+            </div>
+        </div>
+        <div class="row pt-5 row-content justify-content-center">
+            {% for post in posts %}
+            <div class="card card-big col-12 col-lg-6 col-md-12">
+                <div class="card-wrapper">
+                    <div class="card-img small">
+                        <img src="{{post.image.url}}" title="" alt="">
+                    </div>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">{{post.post}}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="page-footer font-small" style="background-color: #121213;">
+
+    <div style="background-color: #121213;">
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row py-4 d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                    <!-- Facebook -->
+                    <a class="fb-ic" style="color: snow;">
+                        <i class="fab fa-facebook-f white-text mr-4"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic" style="color: snow;">
+                        <i class="fab fa-twitter white-text mr-4"> </i>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gplus-ic" style="color: snow;">
+                        <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="li-ic" style="color: snow;">
+                        <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic" style="color: snow;">
+                        <i class="fab fa-instagram white-text"> </i>
+                    </a>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row-->
+        </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold" style="color: snow;">Neighbourhood</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <a href="#!" style="color: snow;">House Maintainance</a>
+                </p>
+                <p>
+                    <a href="#!" style="color: snow;">Security</a>
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold" style="color: snow;">Useful links</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <a href="#!" style="color: snow;">Your Profile</a>
+                </p>
+                <p>
+                    <a href="#!" style="color: snow;">Help</a>
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold" style="color: snow;">Contact</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p style="color: snow;">
+                    <i class="fas fa-phone mr-3" style="color: snow;"></i> + 254 62 78 34 65</p>
+                <p style="color: snow;">
+                    <i class="fas fa-print mr-3" style="color: snow;"></i> + 254 67 45 14 67</p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+{% endblock %}

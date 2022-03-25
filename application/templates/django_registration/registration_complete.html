@@ -1,0 +1,58 @@
+{% load static %} {% load bootstrap4%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Registration Form</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> {%bootstrap_css%}
+    <link rel="stylesheet" href="{% static 'css/complete.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="slider mb-5 ">
+        <h5 class="slider-title ">Complete your registration by joining a hood</h5>
+        <i class="fa fa-chevron-left prev "></i>
+        <i class="fa fa-chevron-right next "></i>
+        <div class="all-posts ">
+            {% for hood in hoods %}
+            <div class="post ">
+                <img src="{{hood.image.url}}" alt=" " class="{{hood.name}} ">
+                <div class="post-info ">
+                    <p class="text-success ml-5">
+                        <a href="#">{{hood.name|upper}}</a>
+                    </p>
+
+                    <div class="d-flex justify-content-around">
+                        <p class="ml-2"> {{hood.location}}</p>
+                        <a class="btn btn-success" href="/join/{{hood.id}}"> Join</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/2df5a15d7f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>
